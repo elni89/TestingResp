@@ -23,7 +23,8 @@ namespace ConsoleApp3
                     switch (val)
                     {
                         case "a":
-                            Console.WriteLine("du valde A");
+                            DatabaseManager sayhello = new DatabaseManager();
+                            sayhello.Sayhello();
                             break;
 
                         case "b":
@@ -52,44 +53,6 @@ namespace ConsoleApp3
                     Console.WriteLine("Du måste ange ett val");
                 }
 
-            }
-
-
-            //Skapar en connection string
-            string connectionString = @"Data Source=mssql1.ilait.se;Initial Catalog=dbs126377;User Id=udmsbs459161;Password='=UW_,pV-n'";
-          
-            //Connectar till databasen
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    Console.WriteLine("Lyckad connection till DB");
-
-                    //Skapa Mysql kod för att hämta info
-                    string sql = "SELECT title, price FROM product";
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                string title = reader["title"].ToString();
-                                decimal price = (decimal)reader["price"];
-
-                                Console.WriteLine($"Title: {title}, Price: {price}");
-                            }
-                        }
-                    }
-
-                    //Sen får vi inte glömma att stänga connectionen
-                    connection.Close();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Misslycklad connection till DB");
-                }
             }
         }
     }
