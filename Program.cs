@@ -23,12 +23,13 @@ namespace ConsoleApp3
                     switch (val)
                     {
                         case "a":
-                            DatabaseManager sayhello = new DatabaseManager();
-                            sayhello.Sayhello();
+                            DatabaseManagerAllproducts allproducts = new DatabaseManagerAllproducts();
+                            allproducts.allProducts();
                             break;
 
                         case "b":
-                            Console.WriteLine("du vale B");
+                            DatabaseManagerAllQuantity quantity = new DatabaseManagerAllQuantity();
+                            quantity.quantity();
                             break;
 
                         case "c":

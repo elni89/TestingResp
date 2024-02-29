@@ -2,9 +2,9 @@
 using System.Data.SqlClient;
 
 
-public class DatabaseManager
+public class DatabaseManagerAllproducts
 {
-    public void Sayhello()
+    public void allProducts()
     {
         //Skapar en connection string
         string connectionString = @"Data Source=mssql1.ilait.se;Initial Catalog=dbs126377;User Id=udmsbs459161;Password='=UW_,pV-n'";
